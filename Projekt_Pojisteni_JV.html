@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="insurance" content="Aplikace pojištění." />
+    <meta name="keywords" content="pojištění, pojištěnec, aplikace, programator, Pau" />
+    <meta name="author" content="Pau" />
+    <link rel="shortcut icon" href="obrazky/insurance.ico">
+    <link rel="stylesheet" href="styleProjekt.css">
+    <title>Pojištěnci</title>
+</head>
+
+
+<body onload="loadObjects()">
+
+    <header>
+        <div>
+            <h1>Aplikace pojištění</h1>
+        </div>
+
+        <nav class="left">
+            <ul>
+                <li class="aktivni"><a href="Projekt_Pojisteni_JV.html">Pojištěnci</a></li>
+                <li> <a href="oAplikaci.html">O aplikaci</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <article>
+        
+        <h2>Pojištěnci</h2>
+
+        <table id="userTable">
+            <thead>
+                <tr class="centrovany">
+                    <th>Jméno</th>
+                    <th>Přijmení</th>
+                    <th>Telefon</th>
+                    <th>Věk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jan</td>
+                    <td>Novák</td>
+                    <td>731584972</td>
+                    <td>31</td>
+                </tr>
+                <tr>
+                    <td>Josef</td>
+                    <td>Nový</td>
+                    <td>725458414</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Hanka</td>
+                    <td>Blatná</td>
+                    <td>603417895</td>
+                    <td>42</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Nový pojištěnec</h2>
+
+        <form id="userForm">
+            <label for="firstName">Jméno:</label>
+            <input type="text" id="firstName" name="firstName"><br>
+    
+            <label for="lastName">Přijmení:</label>
+            <input type="text" id="lastName" name="lastName"><br>
+    
+            <label for="phone">Telefon:</label>
+            <input type="text" id="phone" name="phone"><br>
+    
+            <label for="age">Věk:</label>
+            <input type="text" id="age" name="age"><br>
+    
+            <input type="submit" value="Přidat pojištence">
+        </form>
+    
+        <script>
+            // najdeme formulář a tabulku
+            let form = document.getElementById("userForm");
+            let table = document.getElementById("userTable");
+    
+            // připojíme funkci na odeslání formuláře
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // zabráníme výchozímu odeslání formuláře
+    
+                // získáme hodnoty z formuláře
+                let firstName = form.elements["firstName"].value;
+                let lastName = form.elements["lastName"].value;
+                let phone = form.elements["phone"].value;
+                let age = form.elements["age"].value;
+    
+                // vytvoříme nový řádek v tabulce
+                let newRow = table.insertRow();
+    
+                // přidáme buňky do nového řádku
+                let firstNameCell = newRow.insertCell();
+                firstNameCell.innerHTML = firstName;
+    
+                let lastNameCell = newRow.insertCell();
+                lastNameCell.innerHTML = lastName;
+    
+                let phoneCell = newRow.insertCell();
+                phoneCell.innerHTML = phone;
+    
+                let ageCell = newRow.insertCell();
+                ageCell.innerHTML = age;
+    
+                // vyprázdníme formulář pro přidání dalšího uživatele
+                form.reset();
+            });
+        </script>
+    </article>
+    <footer>
+        Vytvořila &copy; Pavlína Špačková 2023
+    </footer>
+</body>
+
+</html>
